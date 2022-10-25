@@ -12,25 +12,27 @@
 <body>
 <div class="container">
     <div class="row">
-        <form class="col s12">
             <div class="card">
                 <div class="card-content">
+                    <span class="card-title">Add Book</span>
                     <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Title" id="add-title" type="text" class="validate">
-                    <label class="active" for="add-title">Title</label>
+                        <form class="col s12" id="vorm">
+                            <div class="row">
+                                <div class="input-field col s6">
+                    <input placeholder="Title" type="text" id="title">
+                    <label for="title"></label>
                 </div>
                     </div>
                 <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="Author" id="add-author" type="text" class="validate">
-                    <label class="active" for="add-author">Author</label>
+                    <input placeholder="Author" type="text" id="author">
+                    <label for="author"></label>
                 </div>
                 </div>
                 <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="ISBN#" id="add-ISBN#" type="text" class="validate">
-                    <label class="active" for="add-ISBN#">ISBN#</label>
+                    <input placeholder="ISBN#" type="text" id="isbn">
+                    <label for="isbn"></label>
                 </div>
                 </div>
                 <div class="row">
@@ -38,7 +40,9 @@
                         <input type="submit" class="btn" value="Add Book">
                     </div>
                 </div>
+                        </form>
                 </div>
+                    </div>
                 <div class="card-action">
                     <p class="card-title" id="book-title">Books</p>
                     <table class="centered">
@@ -49,29 +53,16 @@
                                 <th>ISBN</th>
                             </tr>
                             </thead>
-                        <tbody>
-                        <tr>
-                            <td>Tõde ja õigus</td>
-                            <td>A.H.Tammsaare</td>
-                            <td>123789
-                                <a href="#" class="secondary-content">x</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Naksitrallid</td>
-                            <td>Eno Raud</td>
-                            <td>123788
-                                <a href="#" class="secondary-content">x</a>
-                            </td>
-                        </tr>
+                        <tbody id="book-list">
                         </tbody>
                     </table>
                 </div>
             </div>
-        </form>
     </div>
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
