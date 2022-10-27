@@ -16,27 +16,22 @@ function addBook(e) {
     const book = [title, author, isbn];
 
     const tr = document.createElement('tr');
+
+    book.forEach((dataItem) => {
+        const td = document.createElement('td');
+        td.appendChild(document.createTextNode(dataItem));
+        tr.appendChild(td);
+    })
     const td = document.createElement('td');
-    td.appendChild(document.createTextNode(''));
-    td.className = 'collection';
-    tr.appendChild(document.createTextNode(book));
-    tr.className = 'collection-item';
-    bookList.appendChild(tr);
-
-
-    const x = document.createElement('a')
     const link = document.createElement('a');
     link.setAttribute('href', '#');
     link.appendChild(document.createTextNode('x'));
     td.appendChild(link);
     tr.appendChild(td);
+
     bookList.appendChild(tr);
 
-    td.appendChild(x);
-    const tr2 = document.querySelector('tr');
-    tr.appendChild(td);
-    //book = '';
-    event.preventDefault();
+    e.preventDefault();
 }
 
 
