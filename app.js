@@ -1,10 +1,12 @@
 const form = document.querySelector('form')
 const bookList = document.querySelector('#book-list');
+const deleteBooks = document.querySelector('#delete-books')
 
 
 
 form.addEventListener('submit', addBook);
-bookList.addEventListener('click', deleteBook)
+bookList.addEventListener('click', deleteBook);
+deleteBooks.addEventListener('click', deleteAllBooks);
 
 function addBook(e) {
     const titleInput = document.querySelector('#title');
@@ -41,6 +43,12 @@ function deleteBook(event) {
         if(confirm('Are you sure to delete this task?')){
             event.target.parentElement.parentElement.remove()
         }
+    }
+}
+
+function deleteAllBooks(event) {
+    while (bookList.firstChild){
+        bookList.removeChild(bookList.firstChild)
     }
 }
 
