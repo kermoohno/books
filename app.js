@@ -2,7 +2,9 @@ const form = document.querySelector('form')
 const bookList = document.querySelector('#book-list');
 
 
+
 form.addEventListener('submit', addBook);
+bookList.addEventListener('click', deleteBook)
 
 function addBook(e) {
     const titleInput = document.querySelector('#title');
@@ -32,6 +34,14 @@ function addBook(e) {
     bookList.appendChild(tr);
 
     e.preventDefault();
+}
+
+function deleteBook(event) {
+    if(event.target.textContent === 'x'){
+        if(confirm('Are you sure to delete this task?')){
+            event.target.parentElement.parentElement.remove()
+        }
+    }
 }
 
 
