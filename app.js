@@ -7,6 +7,7 @@ const deleteBooks = document.querySelector('#delete-books')
 form.addEventListener('submit', addBook);
 bookList.addEventListener('click', deleteBook);
 deleteBooks.addEventListener('click', deleteAllBooks);
+//document.addEventListener('DOMContentLoaded', getBooksFromLS);
 
 function addBook(e) {
     const titleInput = document.querySelector('#title');
@@ -36,6 +37,8 @@ function addBook(e) {
     bookList.appendChild(tr);
 
     e.preventDefault();
+
+    addBookToLS(book);
 }
 
 function deleteBook(event) {
@@ -62,5 +65,22 @@ function addBookToLS(book) {
     books.push(book)
     localStorage.setItem('books', JSON.stringify(books))
 }
+/*function deleteTaskFromLS(book) {
+    let books
+    if(localStorage.getItem('books') === null) {
+        books = []
+    } else {
+        books = JSON.parse(localStorage.getItem('books'))
+    }
+    books.forEach((taskFromLS, index) => {
+        if(taskFromLS === book){
+            books.splice(index, 1)
+        }
+        console.log(index, bookFromLS)
+    })
+    localStorage.setItem('books', JSON.stringify(books))
+}
+*/
+
 
 
