@@ -9,6 +9,37 @@ bookList.addEventListener('click', deleteBook);
 deleteBooks.addEventListener('click', deleteAllBooks);
 document.addEventListener('DOMContentLoaded', getBooksFromLS);
 
+function getBooksFromLS(event){
+    let books
+    if(localStorage.getItem(`books`) === null) {
+        books = []
+    } else {
+        books = JSON.parse(localStorage.getItem(`books`))
+        console.log(typeof books)
+
+    }
+    books.forEach((bookFromLS) => {
+        const book = [title, author, isbn];
+
+        const tr = document.createElement('tr');
+
+        book.forEach((dataItem) => {
+            const td = document.createElement('td');
+            td.appendChild(document.createTextNode(bookFromLS));
+            tr.appendChild(td);
+        })
+        const td = document.createElement('td');
+        const link = document.createElement('a');
+        link.setAttribute('href', '#');
+        link.appendChild(document.createTextNode('x'));
+        td.appendChild(link);
+        tr.appendChild(td);
+
+        bookList.appendChild(tr);
+
+    });
+}
+
 function addBook(e) {
     const titleInput = document.querySelector('#title');
     const authorInput = document.querySelector('#author');
@@ -86,28 +117,9 @@ function deleteBookFromLS(boook) {
         if(JSON.stringify(bookFromLS) === JSON.stringify(boook)) {
             books.splice(index, 1)
         }
-    })
+    });
     localStorage.setItem('books', JSON.stringify(books))
 }
 
-/*function getBooksFromLS(event) {
-    let books
-    if(localStorage.getItem('books') === null) {
-        books = []
-    } else {
-        books = JSON.parse(localStorage.getItem('books'))
-    }
-    books.forEach((bookFromLS) => {
-        const book = [title, author, isbn];
-
-        const tr = document.createElement('tr');
 
 
-        book.forEach((dataItem) => {
-            const td = document.createElement('td');
-            td.appendChild(document.createTextNode(dataItem));
-            tr.appendChild(td);
-        })
-        }
-
- */
