@@ -19,13 +19,13 @@ function getBooksFromLS(event){
 
     }
     books.forEach((bookFromLS) => {
-        const book = [title, author, isbn];
+        //const book = [title, author, isbn];
 
         const tr = document.createElement('tr');
 
-        book.forEach((dataItem) => {
+        bookFromLS.forEach((dataItem) => {
             const td = document.createElement('td');
-            td.appendChild(document.createTextNode(bookFromLS));
+            td.appendChild(document.createTextNode(dataItem));
             tr.appendChild(td);
         })
         const td = document.createElement('td');
@@ -108,8 +108,6 @@ function deleteBookFromLS(boook) {
         books = []
     } else {
         books = JSON.parse(localStorage.getItem(`books`))
-        console.log(typeof books)
-
     }
     console.log(books)
     books.forEach((bookFromLS, index) => {
